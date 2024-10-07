@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+
+    <!-- Navigation Bar -->
+    
+
+    <!-- Home Section -->
+    <div class="home-section">
+        <h1>Welcome to My Portfolio</h1>
+        <section class="about">
+            <h2>About Me</h2>
+            <p>I am a passionate Python Django developer with experience in creating dynamic and responsive web applications.</p>
+        </section>
+        <p>I'm Shabna P, a Python Django Developer and Data Analyst.</p>
+        <a href="{% url 'projects' %}">Explore My Projects</a>
+    </div>
+
+</body>
+
+{% endblock %}

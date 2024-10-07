@@ -1,0 +1,99 @@
+:root {
+    --color-background: #1a1a1a;
+    --color-card: #252525;
+    --color-accent: #ffd700;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #a0a0a0;
+    --color-border: #333333;
+    --transition-smooth: all 0.3s ease-in-out;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --shadow-strong: 0 8px 30px rgba(0, 0, 0, 0.25);
+    --background-image: url("{% static 'images\certificates\hand.png' %}" ); 
+    --background-image: <img src="{% static 'images\certificates\Amazonsale.png' %}" alt="Certificate 1">/*Add your background image path*/
+}
+
+/*General Styling*/
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    background-image: var(--background-image); /*Use the background image*/
+    background-size: cover; /*Cover the entire viewport*/
+    background-position: center; /*Center the background image*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*Header Styling*/
+header {
+    background-color: rgba(26, 26, 26, 0.8); /*Slightly more transparent*/
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 800;
+    padding: 1rem 0;
+}
+
+/*Hero Section*/
+.hero {
+    text-align: center;
+    padding: 8rem 2rem; /
+
+*Increased padding for better visibility*
+
+/
+    background-color: rgba(0, 0, 0, 0.7); /*Dark overlay for text readability*/
+    border-radius: 10px;
+    box-shadow: var(--shadow-strong);
+}
+
+.hero h1 {
+    font-size: 3.5rem; /*Increased font size*/
+    margin-bottom: 1rem;
+    color: var(--color-accent); /*Change title color to accent*/
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/*Footer Styling*/
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: rgba(26, 26, 26, 0.95);
+    color: var(--color-text-light);
+    position: relative;
+}
+
+/*Button Styling*/
+.btn {
+    background-color: var(--color-accent);
+    color: var(--color-text-primary);
+    padding: 12px 20px; /*Adjusted padding*/
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    text-transform: uppercase; /*Make button text uppercase*/
+}
+
+.btn:hover {
+    background-color: #ffcc00; /*Lighter on hover*/
+}
+
+/*Media Queries for Responsiveness*/
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /
+
+*Stack in a single column for smaller screens*
+
+/
+    }
+}

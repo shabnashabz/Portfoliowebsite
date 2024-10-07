@@ -1,0 +1,476 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="home-section">
+    <div class="container">
+        <!-- Introduction Section -->
+        <section class="hero">
+       
+            <h1>Hi, I'm Shabna </h1>
+            <h1>Welcome to my Portfolio</h1>
+            <p>A Python Django Developer and Data & Business Analyst</p>
+            <h2>About Me</h2>
+        <p>Hi there! I’m Shabna, a Data and Business Analyst and Full Stack Developer.
+
+
+            With over two years of hands-on experience in Visual Basic 6, software support, and testing, I’ve honed my problem-solving skills and developed a keen eye for optimizing functionality. 
+        </p><p>But that’s just the beginning!
+
+             Python Full Stack Developer Internship: Recently, I immersed myself in the world of Python, diving into both front-end and back-end development. From crafting responsive web interfaces to building robust APIs, I’ve embraced the full stack.
+            
+            </p> <p>Data Enthusiast: As a certified Data Analyst, I’ve explored the intricacies of data visualization using tools like Power BI, Tableau, and Looker Studio. Whether it’s uncovering trends or translating complex insights into actionable recommendations, I thrive on turning data into stories.
+            
+            I thrive at the intersection of legacy systems and cutting-edge technology, connecting the old with the new to drive progress.</p>
+        <a href="{% url 'about' %}" class="btn-secondary">Learn More About Me</a>
+        <h2>Featured Projects</h2>
+        <p>I’ve worked on some exciting projects that I'm really proud of, and I’d love for you to check them out! You can explore a collection of my favorite ones below. Feel free to take a look!</p>
+        <div class="projects-grid">
+            {% for project in projects %}
+            <div class="project-card">
+                <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
+                <a href="{{ project.link }}" class="btn-primary">View Project</a>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="{% url 'projects' %}" class="btn-secondary">See All Projects</a>
+        <h2>Get In Touch</h2>
+        <p>Want to chat or learn more about what I do? I’d love to connect! Whether it’s for a potential project, collaboration, or just to say hi, don’t hesitate to reach out. Looking forward to hearing from you! ☺️ </p>
+        <form class="contact-form" method="post" action="{% url 'contact' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <a href="{% url 'contact' %}" class="btn-secondary">Send Message</a>
+          
+        </form>
+
+        <!-- about section -->
+
+      
+        <div class="about-section">
+            <h2>Shabna P</h2>
+            <div class="about-content">
+                <p>I’m a passionate Data Analyst and Full Stack Developer with expertise in Python, Django, and various data visualization tools...</p>
+            </div>
+        
+            <h3>Certifications</h3>
+            <div class="certificates-section">
+                <!-- Certificate 1 -->
+                <div class="certificate">
+                    <div class="cert-details">
+                        <h4>Accenture North America - Data Analytics and Visualization Job Simulation</h4>
+                        <p>Issued by: Forage(Accenture North America)</p>
+                        <p>Year: 2024</p>
+                        <p>Description: Gained expertise in data analysis and visualization using tools like Power BI and Tableau, focusing on business decision-making.</p>
+                        <p>Skills Earned: Data analysis, data visualization, using tools like Power BI and Tableau, interpreting data to make business decisions.</p>
+                    </div>
+                    <div class="cert-image">
+                        <img src="{% static 'images\certificates\Accenture Data Analytics.jpg' %}" alt="Certificate 1">
+                    </div>
+                </div>
+        
+                <!-- Certificate 2 -->
+                <div class="certificate">
+                    <div class="cert-details">
+                        <h4>PwC Switzerland - Power BI Job Simulation</h4>
+                        <p>Issued by: Forage (PwC Switzerland)</p>
+                        <p>Year: 2024</p>
+                        <p>Description:: Developed advanced skills in Power BI, including creating interactive dashboards, data modeling, and comprehensive reporting.</p>
+                        <p>Skills Earned: Advanced Power BI skills, creating interactive dashboards, data modeling, and reporting.</p>
+                    </div>
+                    <div class="cert-image">
+                        <img src="{% static 'images/certificates/PwC Switzerland__completion_certificate.jpg' %}" alt="Certificate 2">
+                    </div>
+                </div>
+        
+                 <!-- Certificate 10 -->
+                 <div class="certificate">
+                    <div class="cert-details">
+                        <h4>Tata Data Visualisation: Empowering Business with Effective Insights Job Simulation on Forage - October 2024</h4>
+                        <p>Issued by: Forage(Tata) </p>
+                        <p>Year: 2024</p>
+                        <p>Description: :Completed a simulation involving creating data visualizations for Tata Consultancy Services.Prepared questions for a meeting with client senior leadership.Created visuals for data analysis to help executives with effective decision making.</p>
+                        <p>Skills Earned:: Power BI skills, creating interactive dashboards, data modeling, DAX and visualization techniques..</p>
+                    </div>
+                    <div class="cert-image">
+                        <img src="{% static 'images/certificates/Tata Group-Datavisualization_certificate.jpg' %}" alt="Certificate 2">
+                    </div>
+                </div>
+        
+                   <!-- Certificate 3 -->
+                   <div class="certificate">
+                    <div class="cert-details">
+                        <h4>Data & Business Analyst</h4>
+                        <p>Issued by: Jobaaj Learnings </p>
+                        <p>Year: 2024</p>
+                        <p>Description: : Gained comprehensive skills in Microsoft Excel, Tableau, SQL, Power BI, Google Looker Studio and data analysis.</p>
+                        <p>Skills Earned: Advanced Power BI skills, creating interactive dashboards, data modeling, and reporting.</p>
+                    </div>
+                    <div class="cert-image">
+                        <img src="{% static 'images/certificates/Jobaajlearnings-Data & Business Analytics.jpg' %}" alt="Certificate 2">
+                    </div>
+                </div>
+        
+                  <!-- Certificate 4 -->
+                  <div class="certificate">
+                    <div class="cert-details">
+                        <h4>Python Full Stack Developer</h4>
+                        <p>Issued by: Inmakes Learning Hub</p>
+                        <p>Year: 2023</p>
+                        <p>Description: : Completed a full-stack development internship, gaining skills in Python, MySQL, Django, and Flask.</p>
+                        <p>Skills Earned:Python Programming Language, MySQL, Django, Flask, GitHub, Python Anywhere.</p>
+                    </div>
+                    <div class="cert-image">
+                        <img src="{% static 'images/certificates/Internship_certificate_inmakes_page-0001.jpg' %}" alt="Certificate 2">
+                    </div>
+                </div>
+        
+                  <!-- Certificate 5 -->
+                  <div class="certificate">
+                    <div class="cert-details">
+                        <h4>HackerRank Certification for Python</h4>
+                        <p>Issued by:HackerRank </p>
+                        <p>Year: 2024</p>
+                        <p>Description: : Demonstrated proficiency in Python programming.</p>
+                        <p>Skills Earned: Python Programming.</p>
+                    </div>
+                    <div class="cert-image">
+                        <img src="{% static 'images/certificates/hacker rank certificate.png' %}" alt="Certificate 2">
+                    </div>
+                </div>
+        
+                  <!-- Certificate 6 -->
+                  <div class="certificate">
+                    <div class="cert-details">
+                        <h4>Advanced Excel</h4>
+                        <p>Issued by: Jobaaj Learnings </p>
+                        <p>Year: 2023</p>
+                        <p>Description: Achieved proficiency in Excel for data manipulation, pivot tables, data cleaning, and reporting.  </p>
+                        <p>Skills Earned: Mastered data analysis and visualization techniques using advanced Excel functions, charts, and graphs.</p>
+                    </div>
+                    <div class="cert-image">
+                        <img src="{% static 'images/certificates/Jobaajlearnings-Excel_Certificate.jpg' %}" alt="Certificate 2">
+                    </div>
+                </div>
+        
+                  <!-- Certificate 7 -->
+                  <div class="certificate">
+                    <div class="cert-details">
+                        <h4>AI/ML Innovations - AWS</h4>
+                        <p>Issued by: AWS </p>
+                        <p>Year: 2024</p>
+                        <p>Description: : In-depth understanding of artificial intelligence and machine learning concepts, tools, and applications using AWS services.</p>
+                        <p>Skills Earned:  Artificial Intelligence and Machine Learning.</p>
+                    </div>
+                    <div class="cert-image">
+                        <img src="{% static 'images/certificates/aws crtfct.png' %}" alt="Certificate 2">
+                    </div>
+                </div>
+        
+                  <!-- Certificate 8 -->
+                  <div class="certificate">
+                    <div class="cert-details">
+                        <h4>Tableau</h4>
+                        <p>Issued by: Jobaaj Learnings </p>
+                        <p>Year: 2024</p>
+                        <p>Description: :Enhanced Power BI capabilities, focusing on data analysis, dashboard creation, and reporting.Learned to define and measure Key Performance Indicators (KPIs) for strategic business performance assessment.</p>
+                        <p>Skills Earned: Advanced Tableau skills, creating interactive dashboards, data modeling, and reporting.</p>
+                    </div>
+                    <div class="cert-image">
+                        <img src="{% static 'images/certificates/Jobaajlearnings-Dataanalytics_Tablaeu_Certificate.jpg' %}" alt="Certificate 2">
+                    </div>
+                </div>
+        
+                   <!-- Certificate 9 -->
+                   <div class="certificate">
+                    <div class="cert-details">
+                        <h4>Power BI</h4>
+                        <p>Issued by: Jobaaj Learnings </p>
+                        <p>Year: 2024</p>
+                        <p>Description: :Learned to define and measure Key Performance Indicators (KPIs) for strategic business performance assessment.</p>
+                        <p>Skills Earned:: Power BI skills, creating interactive dashboards, data modeling, DAX and visualization techniques..</p>
+                    </div>
+                    <div class="cert-image">
+                        <img src="{% static 'images/certificates/Jobaajlearnings-Certificate PowerBi biginner to Advance.jpg' %}" alt="Certificate 2">
+                    </div>
+                </div>
+        
+                   <!-- Certificate 11-->
+                   <div class="certificate">
+                    <div class="cert-details">
+                        <h4>Prompt Engineering for ChatGpt</h4>
+                        <p>Issued by: Great Learning</p>
+                        <p>Year: 2024</p>
+                        <p>Description: : Gained comprehensive skills in Prompt engineering.</p>
+                        <p>Skills Earned: Advanced Prompting</p>
+                    </div>
+                    <div class="cert-image">
+                        <img src="{% static 'images/certificates/Greatlrng.prmpt eng.jpg' %}" alt="Certificate 2">
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+    
+        
+        
+        <!-- project section -->
+         
+
+<div class="about-section">
+    <h2>My Projects</h2>
+    <div class="about-content">
+        <p>Full Stack Developer & Data Analyst – Projects Overview
+            As a versatile professional with a strong foundation in both data analysis and full-stack web development, I have developed and delivered a variety of projects that showcase my technical skills and problem-solving abilities. My projects span from interactive data visualizations and business analytics to dynamic web applications built using modern web development frameworks.</p>
+            
+           <h4> Data Analysis Projects:</h4>
+           <p> I specialize in analyzing and visualizing data to drive informed business decisions. Utilizing tools such as Power BI, Tableau, Microsoft Excel, and Python, I’ve delivered insightful analytics solutions across different domains:</p>
+            
+           <p> Global Furniture Sales Analysis (2021-2022): Analyzed global sales data, visualizing key metrics like revenue, margins, and product performance using Power BI.</p>
+        <p>Spotify Dataset Exploration: Performed advanced SQL queries on Spotify track data to analyze trends in music consumption and identify top-performing tracks and artists.</p>
+    <p> Global EV Sales Analysis (2010-2024): Conducted sales trend analysis of electric vehicles, providing insights into global adoption patterns and key markets using Python and Power BI.</p>
+<p> Video Game Sales Analysis: Delivered insights into video game sales across platforms, identifying trends and helping stakeholders understand market dynamics.</p>
+           <h4> Full Stack Web Development Projects:</h4>
+        <p> With expertise in Python Django, HTML/CSS, JavaScript, and MySQL, I’ve created robust web applications that focus on user experience, functionality, and scalability:</p>
+            
+    <p>Personal Portfolio Website: Built and deployed a dynamic personal portfolio website showcasing my projects, skills, and achievements, leveraging Django’s capabilities and front-end design.</p>
+<p>Online Shopping Platform: Developed a full-fledged e-commerce website with features like user authentication, product catalog, shopping cart, and order management using Django and MySQL.</p>
+<p> Travel Website: Created an engaging travel website that allows users to search, explore, and book travel packages, utilizing Django and an integrated MySQL database.</p>
+</> HR Dashboard Project: Built a human resources analytics dashboard using Tableau to monitor and visualize workforce metrics, including employee performance and retention rates.</p>
+    </div>
+
+    <h3>Projects</h3>
+    <div class="certificates-section">
+        <!-- Certificate 1 -->
+        <div class="certificate">
+            <div class="cert-details">
+                <h4>Amazon Sales Dashboard Creation</h4>
+                <p>Year: Sep 2024 </p>
+                <p>Description: Developed an intricate dashboard using Microsoft Excel to track and visualize Amazon’s sales data for the year 2024. The project involved analyzing large datasets to display key performance indicators such as total sales revenue, units sold, and distribution across cities and states in India. Utilized advanced Excel features like pivot tables, charts (pie chart & line graph), and conditional formatting to create an interactive tool that provides insights into product performance and market trends.</p>
+                <p>Skills Earned: Data analysis, data visualization, Advanced Excel,Chart and Graphs.</p>
+                <a href=" https://github.com/shabnashabz/Amazon_sales_excel" class="btn btn-primary">View Project</a>
+                
+            </div>
+            <div class="cert-image">
+                <img src="{% static 'images\certificates\Amazonsale.png' %}" alt="Certificate 1">
+            </div>
+        </div>
+
+        <!-- Certificate 2 -->
+        <div class="certificate">
+            <div class="cert-details">
+                <h4>
+                    Netflix Movies and TV Shows Data Analysis using SQL</h4>
+                <p>Year: Sep 2024</p>
+                <p>Description:This project involves a comprehensive analysis of Netflix's movies and TV shows data using SQL. The goal is to extract valuable insights and answer various business questions based on the dataset. The following README provides a detailed account of the project's objectives, business problems, solutions, findings, and conclusions</p>
+                <p>Skills Earned: Data Analysis · SQL · Databases · PostgreSQL · Problem Solving · Statistical Data Analysis.</p>
+            <a href="https://github.com/shabnashabz/Netflix" class="btn btn-primary">View Project</a>
+        </div>
+
+            <div class="cert-image">
+                <img src="{% static 'images/certificates/netflixsql.png' %}" alt="Certificate 2">
+            </div>
+        </div>
+
+         <!-- Certificate 10 -->
+         <div class="certificate">
+            <div class="cert-details">
+                <h4>
+                    Spotify Advanced SQL Project and Query Optimization P-6</h4>
+                <p>Year:Sep 2024</p>
+                <p>Description: :This project involves analyzing a Spotify dataset with various attributes about tracks, albums, and artists using SQL. It covers an end-to-end process of normalizing a denormalized dataset, performing SQL queries of varying complexity (easy, medium, and advanced), and optimizing query performance. The primary goals of the project are to practice advanced SQL skills and generate valuable insights from the dataset.</p>
+                <p>Skills Earned:Data Analysis · Data Cleaning · SQL · Query Optimization</p>
+        
+                 <a href="https://github.com/shabnashabz/Spotify" class="btn btn-primary">View Project</a>
+            </div>
+
+            <div class="cert-image">
+                <img src="{% static 'images/certificates/spotifysql.png' %}" alt="Certificate 2">
+            </div>
+        </div>
+
+           <!-- Certificate 3 -->
+           <div class="certificate">
+            <div class="cert-details">
+                <h4>Dynamic 
+                    Sales Dashboard 2023</h4>
+                <p>Year: Aug 2024</p>
+                <p>Description: Created a dynamic sales dashboard that tracks and visualizes key performance indicators such as total sales, profit, and quantity. The dashboard compares year-over-year performance, highlights the highest and lowest performing months, and provides a detailed breakdown of sales and profits by subcategory. It also tracks trends over time, offering actionable insights for sales strategy optimization.</p>
+                <p>Skills Earned:Data Analysis · Data Modeling · Data Cleaning · Tableau · Data Visualization · Statistical Data Analysis · DAX · Problem Solving · Key Performance Indicators</p>
+          
+            <a href="https://github.com/shabnashabz/Dynamic_excel_Dashboard" class="btn btn-primary">View Project</a>
+        </div>
+
+            <div class="cert-image">
+                <img src="{% static 'images/certificates/Dynamic_Dashboard.png' %}" alt="Certificate 2">
+            </div>
+        </div>
+
+          <!-- Certificate 4 -->
+          <div class="certificate">
+            <div class="cert-details">
+                <h4>
+                    Global Air Pollution Analysis</h4>
+                
+                <p>Year: Jun 2024</p>
+                <p>Description: Analyzed global air pollution data using Python, focusing on key pollutants across various regions. This project involved data cleaning, visualization, and statistical analysis to uncover trends in air quality over time. The insights derived help identify areas with critical pollution levels and track progress in air quality improvements.</p>
+                <p>Skills Earned: Matplotlib · Seaborn · SciPy · Pandas (Software) · NumPy · Python (Programming Language)</p>
+          
+            <a href="https://github.com/shabnashabz/global_air_pollution" class="btn btn-primary">View Project</a>
+        </div>
+
+            <div class="cert-image">
+                <img src="{% static 'images/certificates/globalair.png' %}" alt="Certificate 2">
+            </div>
+        </div>
+
+          <!-- Certificate 5 -->
+          <div class="certificate">
+            <div class="cert-details">
+                <h4>
+                    Dark Side of Social Media Analysis</h4>
+            
+                <p>Year: 2024</p>
+                <p>Description: Analyzed social media usage data to uncover patterns related to the negative effects of social media, such as addiction, mental health impacts, and privacy concerns. Using Python, I processed and visualized data to provide insights into how prolonged social media usage correlates with well-being and societal trends.</p>
+                <p>Skills Earned:  Data Analysis · Data Modeling · Seaborn · Pandas (Software) · NumPy · Python (Programming Language)</p>
+                <a href="https://github.com/shabnashabz/Time_wasters_on-social_media" class="btn btn-primary">View Project</a>
+            </div>
+            <div class="cert-image">
+                <img src="{% static 'images/certificates/timewasters.png' %}" alt="Certificate 2">
+            </div>
+        </div>
+
+          <!-- Certificate 6 -->
+          <div class="certificate">
+            <div class="cert-details">
+                <h4>
+                    Global EV Sales(2010-2024)</h4>
+                
+                <p>Year: July 2024</p>
+                <p>Description: Conducted an in-depth analysis of global electric vehicle (EV) sales trends from 2010 to 2024 using Python on Kaggle. The project involved data cleaning, visualization, and trend analysis to uncover key insights in the rapid growth of the EV market. The analysis provides a comprehensive view of regional sales distributions, market growth patterns, and projections for the coming years.</p>
+                <p>Skills Earned:Matplotlib · Seaborn · Pandas (Software) · NumPy · Python (Programming Language) · Data Visualization · Problem Solving</p>
+           
+            <a href="https://github.com/shabnashabz/Global_Ev_Sales" class="btn btn-primary">View Project</a>
+        </div>
+
+            <div class="cert-image">
+                <img src="{% static 'images/certificates/globalevsales.png' %}" alt="Certificate 2">
+            </div>
+        </div>
+
+          <!-- Certificate 7 -->
+          <div class="certificate">
+            <div class="cert-details">
+                <h4>Global Furniture Sales 2021-2022 Power BI Project</h4>
+              
+                <p>Year: 2024</p>
+                <p>Description:This project analyzes global furniture sales data for the years 2021 and 2022. It visualizes key metrics like revenue, margin, item count, and salesperson performance using **Power BI**. The dashboard allows users to filter data by product, region, customer, and salesperson.</p>
+                <p>Skills Earned:Power BI skills, creating interactive dashboards, data modeling, DAX and visualization techniques.</p>
+            <a href="https://github.com/shabnashabz/globalfutniture" class="btn btn-primary">View Project</a>
+        </div>
+
+            <div class="cert-image">
+                <img src="{% static 'images/certificates/globalfurntr.png' %}" alt="Certificate 2">
+            </div>
+        </div>
+
+          <!-- Certificate 8 -->
+          <div class="certificate">
+            <div class="cert-details">
+                <h4>Travel Website</h4>
+                
+                <p>Year: 2023</p>
+                <p>Description: Overview Travello is a fully functional travel website designed to inspire users to explore new destinations. Built using Python Django and MySQL, this site allows users to learn about various destinations, register an account, and connect with the team for further inquiries. The website features a clean design and an intuitive user interface to ensure a smooth browsing experience.</p>
+                <p>Skills Earned: Python, Django, MySql, Python Anywhere</p>
+          
+            <a href="https://github.com/shabnashabz/Travel" class="btn btn-primary">View Project</a>
+        </div>
+
+            <div class="cert-image">
+                <img src="{% static 'images/certificates/travel_work.png' %}" alt="Certificate 2">
+            </div>
+        </div>
+
+           <!-- Certificate 9 -->
+           <div class="certificate">
+            <div class="cert-details">
+                <h4>
+                    Credit Card Report</h4>
+                
+                <p>Year: 2024</p>
+                <p>Description: Revenue Breakdown: Explored revenue distribution across product subcategories (Silver, Blue, Gold, etc.).Education Impact: Analyzed revenue by education level—valuable insights for targeted marketing strategies.</p>
+                <p>Skills Earned: Power BI skills, creating interactive dashboards, data modeling, DAX and visualization techniques.</p>
+            
+            <a href="https://github.com/shabnashabz/Credit_card_finance_dashboard" class="btn btn-primary">View Project</a>
+        </div>
+
+            <div class="cert-image">
+                <img src="{% static 'images/certificates/creditbi.png' %}" alt="Certificate 2">
+            </div>
+        </div>
+
+           <!-- Certificate 11-->
+           <div class="certificate">
+            <div class="cert-details">
+                <h4>
+                    Human Resources Dashboard using Tableau</h4>
+        
+                <p>Year: 2024</p>
+                <p>Description: Developed a comprehensive HR dashboard in Tableau to visualize key metrics such as hiring trends, departmental headcounts, employee demographics, and income analysis. The dashboard empowers HR teams to make data-driven decisions by providing insights into workforce distribution, performance, and salary trends across various demographics</p>
+                <p>Skills Earned: Data Analysis · Data Cleaning · Tableau · Data Visualization</p>
+           
+            <a href="https://github.com/shabnashabz/HR-Dashborad-Tableau" class="btn btn-primary">View Project</a>
+        </div>
+
+            <div class="cert-image">
+                <img src="{% static 'images/certificates/HR___Summarydash.png' %}" alt="Certificate 2">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- contact section -->
+
+
+<div class="contact-page">
+    <div class="contact-section">
+        <div class="glass-container">
+            <h2>Get in Touch</h2>
+
+           
+
+            <form class="contact-form" method="post" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                   
+                    {{ form.name }}
+                </div>
+                <div class="form-group">
+                   
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                   
+                    {{ form.message }}
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+
+            <div class="social-links">
+                <p>Connect me with 👇🏻 </p>
+                <a href="https://www.linkedin.com/in/shabna-shereef-159588324/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/shabnashabz" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/__sh_ab_na_s/?__pwa=1" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:shabnap40@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        </section>
+    </div>
+</div>
+
+
+{% endblock %}
